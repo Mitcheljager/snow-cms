@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snow Backend</title>
+    <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="admin-wrapper">
+      <nav class="admin-navigation">
+        <section class="list-group">
+          <h4 class="list-group__title" href="#">Articles</h4>
+
+          <div class="list-group__items">
+            <%= link_to 'All Articles',
+                { :controller => 'articles', :action => :overview },
+                { :class=>'list-group__item' } %>
+            <%= link_to 'New Article', new_article_path, :class=> 'list-group__item' %>
+          </div>
+        </section>
+
+        <%= link_to 'Website', root_path, :class=> 'btn offset-top' %>
+
+        <section class="user user--admin">
+          <% if current_user %>
+          Signed in as <%= current_user.name %> <%= link_to "Logout", '/logout' %>
+          <% else %>
+          <%= link_to 'Login', '/login' %> <%= link_to 'Signup', '/signup' %>
+          <% end %>
+        </section>
+      </nav>
+
+      <div class="admin-content">
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>

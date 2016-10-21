@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsTest</title>
+    <title>Snow Frontend</title>
     <%= csrf_meta_tags %>
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,16 +13,27 @@
   <body>
     <nav class="navigation">
       <%= link_to 'Home', root_path, :class=> 'navigation__item' %>
+      <%= link_to 'Articles',
+          { :controller => 'articles', :action => :index },
+          { :class=>'navigation__item' } %>
+
+      <% if current_user %>
+        <%= link_to 'Admin',
+            { :controller => 'articles', :action => :overview },
+            { :class=>'navigation__item' } %>
+      <% end %>
 
       <div class="user">
         <% if current_user %>
-        Signed in as <%= current_user.name %> <%= link_to "Logout", '/logout' %>
+          Signed in as <%= current_user.name %> <%= link_to "Logout", '/logout' %>
         <% else %>
-        <%= link_to 'Login', '/login' %> <%= link_to 'Signup', '/signup' %>
+          <%= link_to 'Login', '/login' %> <%= link_to 'Signup', '/signup' %>
         <% end %>
       </div>
     </nav>
 
-    <%= yield %>
+    <section class="content">
+      <%= yield %>
+    </section>
   </body>
 </html>

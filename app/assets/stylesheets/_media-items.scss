@@ -1,0 +1,27 @@
+.media-items {
+  width: 100%;
+}
+
+.media-item {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0;
+  display: flex;
+  width: 100%;
+}
+
+.media-item__title {
+  width: 25%;
+  padding-right: 30px;
+  color: #01a5e4;
+  text-decoration: none;
+}
+
+.media-item__content {
+  padding-right: 30px;
+}
+
+.media-item__action {
+  margin-left: auto;
+  color: #01a5e4;
+  text-decoration: none;
+}

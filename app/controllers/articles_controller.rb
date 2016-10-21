@@ -1,8 +1,14 @@
 class ArticlesController < ApplicationController
 
-  before_action :authorize, only: [:new, :create, :edit, :save]
+  before_action :authorize, only: [:overview, :new, :create, :edit, :save]
+
+  layout 'admin', only: [:overview, :new, :create]
 
   def index
+    @articles = Article.all
+  end
+
+  def overview
     @articles = Article.all
   end
 
