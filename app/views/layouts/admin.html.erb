@@ -13,6 +13,18 @@
   <body>
     <section class="admin-wrapper">
       <nav class="admin-navigation">
+
+        <section class="list-group">
+          <h4 class="list-group__title" href="#">Pages</h4>
+
+          <div class="list-group__items">
+            <%= link_to 'All Pages',
+                { :controller => 'pages', :action => :overview },
+                { :class=>'list-group__item' } %>
+            <%= link_to 'New Page', new_page_path, :class=> 'list-group__item' %>
+          </div>
+        </section>
+
         <section class="list-group">
           <h4 class="list-group__title" href="#">Articles</h4>
 

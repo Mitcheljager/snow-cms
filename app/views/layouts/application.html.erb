@@ -17,6 +17,10 @@
           { :controller => 'articles', :action => :index },
           { :class=>'navigation__item' } %>
 
+      <% @pages.each do |page| %>
+        <%= link_to page.title, page_path(page), :class=>'navigation__item' %>
+      <% end %>
+
       <% if current_user %>
         <%= link_to 'Admin',
             { :controller => 'articles', :action => :overview },

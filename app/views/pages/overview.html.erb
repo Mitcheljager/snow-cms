@@ -1,0 +1,13 @@
+<h1 class="title title--main">Pages</h1>
+
+<div class="media-items">
+  <% @pages.each do |page| %>
+    <div class="media-item">
+      <%= link_to page.title, page_path(page), :class=>'media-item__title' %>
+      <div class="media-item__content"><%= page.text %></div>
+      <%= link_to 'Edit', edit_page_path(page), :class=>'media-item__action' %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'New page', new_page_path, :class=>'btn offset-top' %>

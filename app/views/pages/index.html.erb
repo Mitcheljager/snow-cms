@@ -1,0 +1,9 @@
+<h1 class="title title--main">Pages</h1>
+
+<div class="media-items">
+  <% @pages.each do |page| %>
+    <div class="media-item">
+      <%= link_to page.title, page_path(page), :class=>'media-item__title' %>
+    </div>
+  <% end %>
+</div>

@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :authorize, only: [:overview, :new, :create, :edit, :save]
 
-  layout 'admin', only: [:overview, :new, :create]
+  layout 'admin', only: [:overview, :new, :create, :edit]
 
   def index
     @articles = Article.all
@@ -18,6 +18,20 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
   def create
