@@ -23,7 +23,7 @@
 
       <% if current_user %>
         <%= link_to 'Admin',
-            { :controller => 'articles', :action => :overview },
+            { :controller => 'admin', :action => :index },
             { :class=>'navigation__item' } %>
       <% end %>
 

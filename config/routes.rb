@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'pages/index'
-
   root to: 'website#index'
+
+  get '/admin' => 'admin#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -18,8 +18,10 @@ Rails.application.routes.draw do
 
   resources :pages
 
+  get 'pages/index'
+
   get '/admin/pages' => 'pages#overview'
-  get '/admin/pages/:id/edit' => 'articles#edit', :as => :edit_page_path
+  get '/admin/pages/:id/edit' => 'pages#edit', :as => :edit_page_path
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

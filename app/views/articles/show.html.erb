@@ -4,6 +4,8 @@
   </h1>
 
   <p>
-    <%= @article.text %>
+    <%= @article.introduction %>
   </p>
+
+  <%= markdown(@article.text) %>
 </article>

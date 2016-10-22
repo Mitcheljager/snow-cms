@@ -4,8 +4,10 @@
   <% @articles.each do |article| %>
     <div class="media-item">
       <%= link_to article.title, article_path(article), :class=>'media-item__title' %>
-      <div class="media-item__content"><%= article.text %></div>
-      <%= link_to 'Edit', edit_article_path(article), :class=>'media-item__action' %>
+
+      <div class="media-item__action">
+        <%= link_to 'Edit', edit_article_path(article), :class=>'media-item__action-link' %>
+      </div>
     </div>
   <% end %>
 </div>
