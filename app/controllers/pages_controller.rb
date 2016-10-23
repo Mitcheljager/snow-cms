@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-  before_action :authorize, only: [:overview, :new, :create, :edit, :save, :destroy]
+  before_action :authorize, except: [:show]
 
-  layout 'admin', only: [:overview, :new, :create, :edit]
+  layout 'admin', except: [:index, :show]
 
   def to_param
     urlname

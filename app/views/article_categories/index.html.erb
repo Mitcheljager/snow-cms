@@ -1,0 +1,27 @@
+<h1 class="title title--main">Article Categories</h1>
+
+<div class="media-items">
+  <% @articleCategories.each do |articleCategory| %>
+    <div class="media-item">
+      <%= link_to articleCategory.name, article_category_path(articleCategory), :class=>'media-item__title' %>
+
+      <div class="media-item__action">
+        <%= link_to 'Delete', article_category_path(articleCategory),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="title title--small">New Category</h2>
+
+<div class="form">
+  <%= form_for :articleCategory, url: article_categories_path do |f| %>
+
+    <%= f.text_field :name, placeholder: "Name", class: 'form__field form__field--large' %>
+    <%= f.text_field :slug, placeholder: "Slug", class: 'form__field' %>
+
+    <%= f.submit 'Save Category', class: 'btn btn--large' %>
+  <% end %>
+</div>

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/admin/articles' => 'articles#overview'
   get '/admin/articles/:id/edit' => 'articles#edit', :as => :edit_article_path
 
+  resources :article_categories
+
   resources :pages
 
   get '/pages/index'

@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
+  before_action :authorize, except: [:show]
 
-  before_action :authorize, only: [:overview, :new, :create, :edit, :save]
+  layout 'admin', except: [:index, :show]
 
-  layout 'admin', only: [:overview, :new, :create, :edit]
+  def to_param
+    urlname
+  end
 
   def index
     @articles = Article.all
@@ -13,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find_by_urlname(params[:id])
   end
 
   def new
@@ -45,6 +48,6 @@ class ArticlesController < ApplicationController
   end
 
   private def article_params
-    params.require(:article).permit(:title, :introduction, :text)
+    params.require(:article).permit(:title, :introduction, :text, :urlname, :category)
   end
 end
