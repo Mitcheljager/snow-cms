@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
-  before_action :authorize, only: [:overview, :new, :create, :edit, :save]
+  before_action :authorize, only: [:overview, :new, :create, :edit, :save, :destroy]
 
   layout 'admin', only: [:overview, :new, :create, :edit]
+
+  def to_param
+    urlname
+  end
 
   def index
     @pages = Page.all
@@ -12,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
+    @page = Page.find_by_urlname(params[:id])
   end
 
   def new
@@ -51,6 +55,6 @@ class PagesController < ApplicationController
   end
 
   private def page_params
-    params.require(:page).permit(:title, :text)
+    params.require(:page).permit(:title, :text, :urlname)
   end
 end

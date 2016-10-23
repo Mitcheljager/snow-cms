@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
   resources :pages
 
-  get 'pages/index'
+  get '/pages/index'
+  get '/:id' => 'pages#show'
 
   get '/admin/pages' => 'pages#overview'
   get '/admin/pages/:id/edit' => 'pages#edit', :as => :edit_page_path
