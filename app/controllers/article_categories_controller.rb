@@ -15,7 +15,8 @@ class ArticleCategoriesController < ApplicationController
     @articleCategory = ArticleCategory.new(articleCategory_params)
 
     if @articleCategory.save
-      render action: 'index'
+      flash[:notice] = 'Category successfully added'
+      redirect_to action: 'index'
     else
       render 'index'
     end

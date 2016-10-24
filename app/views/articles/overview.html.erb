@@ -1,5 +1,9 @@
 <h1 class="title title--main">Articles</h1>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <div class="media-items">
   <% @articles.each do |article| %>
     <div class="media-item">

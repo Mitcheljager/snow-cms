@@ -31,7 +31,8 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
 
     if @page.update(page_params)
-      redirect_to @page
+      flash[:notice] = 'Page successfully updated'
+      redirect_to action: 'overview'
     else
       render 'edit'
     end
@@ -41,7 +42,8 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to @page
+      flash[:notice] = 'Page successfully created'
+      redirect_to action: 'overview'
     else
       render 'new'
     end
@@ -51,7 +53,8 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @page.destroy
 
-    redirect_to pages_path
+    flash[:notice] = 'Page successfully deleted'
+    redirect_to action: 'overview'
   end
 
   private def page_params

@@ -31,7 +31,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article
+      flash[:notice] = 'Article successfully updated'
+      redirect_to action: 'overview'
     else
       render 'edit'
     end
@@ -41,7 +42,8 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article
+      flash[:notice] = 'Article successfully created'
+      redirect_to action: 'overview'
     else
       render 'new'
     end
