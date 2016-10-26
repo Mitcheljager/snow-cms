@@ -14,13 +14,13 @@
       </div>
     <% end %>
 
-    <%= f.text_field :title, placeholder: "Title", class: 'form__field form__field--large' %>
-    <%= f.text_field :urlname, placeholder: "Nice Url", class: 'form__field' %>
+    <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
+    <%= f.text_field :urlname, placeholder: 'Nice Url', class: 'form__field' %>
 
     <%= f.collection_select(:category, ArticleCategory.all, :slug, :name) %>
 
-    <%= f.text_area :introduction, placeholder: "Introduction", class: 'form__textarea' %>
-    <%= f.text_area :text, placeholder: "Content", class: 'form__textarea', id: 'markdown' %>
+    <%= f.text_area :introduction, placeholder: 'Introduction', class: 'form__textarea' %>
+    <%= f.text_area :text, placeholder: 'Content', class: 'form__textarea', id: 'markdown' %>
 
     <%= f.submit class: 'btn btn--large' %>
   <% end %>

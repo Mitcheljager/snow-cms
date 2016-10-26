@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+a {
+  color: #2f99da;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(#2f99da, 20%);
+  }
+}
+
 body {
   padding: 0;
   margin: 0;

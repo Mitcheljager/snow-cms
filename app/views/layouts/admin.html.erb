@@ -39,13 +39,11 @@
           </div>
         </section>
 
-        <%= link_to 'Website', root_path, :class=> 'btn offset-top' %>
+        <%= link_to 'Website', root_path, class: 'btn offset-top' %>
 
         <section class="user user--admin">
           <% if current_user %>
           Signed in as <%= current_user.name %> <%= link_to "Logout", '/logout' %>
-          <% else %>
-          <%= link_to 'Login', '/login' %> <%= link_to 'Signup', '/signup' %>
           <% end %>
         </section>
       </nav>
