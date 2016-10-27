@@ -1,11 +1,12 @@
 .media-items {
   width: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 60px;
 }
 
 .media-item {
   width: 100%;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #efefef;
+  padding: 20px 0;
 }
 
 .media-item__title {
@@ -13,9 +14,9 @@
   color: #2f99da;
   text-decoration: none;
   font-weight: 600;
-  display: block;
   padding-left: 20px;
   position: relative;
+  display: block;
 
   &::before {
     display: block;
@@ -34,14 +35,16 @@
 
 .media-item__action {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .media-item__action-link {
   color: #2f99da;
   text-decoration: none;
-  display: block;
   padding-left: 50px;
   position: relative;
+  width: auto;
 
   &::before {
     display: block;

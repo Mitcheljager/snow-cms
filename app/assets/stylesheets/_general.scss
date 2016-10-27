@@ -16,21 +16,31 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  line-height: 1.6em;
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 60px 0 30px;
+  font-weight: 300;
+  color: #da393f;
   line-height: 1.5em;
 }
 
-.title {
-  margin: 0 0 30px;
-  font-size: 24px;
-  color: #e8792c;
-  font-weight: 600;
-  letter-spacing: 1px;
+h1 {
+  font-size: 38px;
 }
 
-.title--main {
-  margin-bottom: 30px;
-  font-size: 28px;
-  color: #e8792c;
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 26px;
 }
 
 .offset-top {

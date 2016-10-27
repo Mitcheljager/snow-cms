@@ -1,11 +1,14 @@
-<article>
-  <h1 class="title title--main">
+<article class="article">
+  <h1 class="title title--main article__title">
     <%= @article.title %>
   </h1>
 
-  <p>
-    <%= @article.introduction %>
-  </p>
+  <div class="article__content">
+    <div class="article__introduction">
+      <%= @article.introduction %>
+    </div>
 
-  <%= markdown(@article.text) %>
+    <%= markdown(@article.text) %>
+  </div>
+
 </article>

@@ -18,7 +18,7 @@
           { :class=>'navigation__item' } %>
 
       <% @pages.each do |page| %>
-        <%= link_to page.title, page.urlname, :class=>'navigation__item' %>
+        <%= link_to page.title, '/' + page.urlname, :class=>'navigation__item' %>
       <% end %>
 
       <% if current_user %>

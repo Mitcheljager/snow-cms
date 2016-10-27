@@ -11,9 +11,12 @@
 
       <div class="media-item__action">
         <%= link_to 'Edit', edit_article_path(article), :class=>'media-item__action-link' %>
+        <%= link_to 'Delete', article_path(article),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
       </div>
     </div>
   <% end %>
 </div>
 
-<%= link_to 'New article', new_article_path, :class=>'btn offset-top' %>
+<%= link_to 'New article', new_article_path, :class=>'btn' %>

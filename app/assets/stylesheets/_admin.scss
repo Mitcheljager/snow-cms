@@ -9,8 +9,10 @@
 }
 
 .admin-content {
-  padding-left: 90px;
   width: 100%;
+  max-width: 640px;
+  margin-left: 90px;
+  // margin-left: calc((100vw - 240px - 640px - 80px) / 2);
 }
 
 .list-group {
