@@ -8,10 +8,19 @@
   min-width: 240px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
 .admin-content {
   width: 100%;
   max-width: 640px;
   margin-left: 90px;
+  animation: fadeIn 600ms forwards;
   // margin-left: calc((100vw - 240px - 640px - 80px) / 2);
 }
 

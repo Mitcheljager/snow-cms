@@ -7,7 +7,9 @@
 <div class="media-items">
   <% @articleCategories.each do |articleCategory| %>
     <div class="media-item">
-      <%= link_to articleCategory.name, article_category_path(articleCategory), :class=>'media-item__title' %>
+      <div class="media-item__title">
+        <%= articleCategory.name %>
+      </div>
 
       <div class="media-item__action">
         <%= link_to 'Delete', article_category_path(articleCategory),
