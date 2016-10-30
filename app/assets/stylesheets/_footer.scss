@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 120px 0;
+}
+
+.footer__copyright {
+  color: #979797;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.footer__link {
+  @extend .navigation__item;
+  margin-left: 30px;
+}

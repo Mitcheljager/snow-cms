@@ -43,6 +43,9 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
 
+  # Fileuploader
+  gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

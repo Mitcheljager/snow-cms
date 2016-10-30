@@ -1,11 +1,13 @@
-<h1 class="title title--main">Articles</h1>
+<h1 class="title title--main page-title">Articles</h1>
 
-<div class="media-items">
+<div class="articles">
   <% @articles.each do |article| %>
-    <div class="media-item">
-      <%= link_to article.title, articles_path + '/' + article.urlname, :class=>'media-item__title' %>
-      <div class="media-item__content"><%= article.introduction %></div>
-      <%= link_to 'Show',  articles_path + '/' + article.urlname, :class=>'media-item__action' %>
-    </div>
+    <article class="article-item">
+      <%= link_to articles_path + '/' + article.urlname, :class=>'article-item__title' do %>
+        <h4 class="article-item__title"><%= article.title %></h4>
+      <% end %>
+      <div class="article-item__content"><%= article.introduction %></div>
+      <%= link_to 'Continue Reading',  articles_path + '/' + article.urlname, :class=>'article-item__action' %>
+    </article>
   <% end %>
 </div>

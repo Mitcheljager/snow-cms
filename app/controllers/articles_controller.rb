@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authorize, except: [:show]
+  before_action :authorize, except: [:index, :show]
 
   layout 'admin', except: [:index, :show]
 
@@ -8,11 +8,11 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def overview
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def show
@@ -57,7 +57,9 @@ class ArticlesController < ApplicationController
     redirect_to action: 'overview'
   end
 
-  private def article_params
-    params.require(:article).permit(:title, :introduction, :text, :urlname, :category)
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :introduction, :text, :urlname, :category, images: [])
   end
 end

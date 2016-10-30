@@ -18,6 +18,7 @@ body {
   font-weight: 300;
   line-height: 1.6em;
   font-size: 18px;
+  color: #252525;
 }
 
 h1,
@@ -48,6 +49,6 @@ h3 {
 }
 
 .content {
-  padding: 30px;
-  margin-top: 60px;
+  max-width: 768px;
+  margin: 60px auto;
 }

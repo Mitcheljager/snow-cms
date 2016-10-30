@@ -11,33 +11,37 @@
   </head>
 
   <body>
-    <nav class="navigation">
-      <%= link_to 'Home', root_path, :class=> 'navigation__item' %>
-      <%= link_to 'Articles',
-          { :controller => 'articles', :action => :index },
-          { :class=>'navigation__item' } %>
-
-      <% @pages.each do |page| %>
-        <%= link_to page.title, '/' + page.urlname, :class=>'navigation__item' %>
-      <% end %>
-
-      <% if current_user %>
-        <%= link_to 'Admin',
-            { :controller => 'admin', :action => :index },
-            { :class=>'navigation__item' } %>
-      <% end %>
-
-      <div class="user">
-        <% if current_user %>
-          Signed in as <%= current_user.name %> <%= link_to "Logout", '/logout' %>
-        <% else %>
-          <%= link_to 'Login', '/login' %> <%= link_to 'Signup', '/signup' %>
-        <% end %>
+    <header class="header">
+      <div class="header__logo">
+        Snow
       </div>
-    </nav>
+
+      <nav class="navigation">
+        <%= link_to 'Home', root_path, :class=> 'navigation__item' %>
+        <%= link_to 'Articles',
+        { :controller => 'articles', :action => :index },
+        { :class=>'navigation__item' } %>
+
+        <% @pages.each do |page| %>
+        <%= link_to page.title, '/' + page.urlname, :class=>'navigation__item ' + current_class?('/' + page.urlname) + '' %>
+        <% end %>
+      </nav>
+    </header>
 
     <section class="content">
       <%= yield %>
     </section>
+
+    <footer class="footer">
+      <div class="footer__copyright">
+        Snow CMS &copy; 2016
+      </div>
+
+      <% if current_user %>
+      <%= link_to 'Admin',
+      { :controller => 'admin', :action => :index },
+      { :class=>'footer__link' } %>
+      <% end %>
+    </footer>
   </body>
 </html>

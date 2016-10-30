@@ -19,4 +19,9 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def current_class?(test_path)
+    return 'navigation__item--current' if request.path == test_path
+    ''
+  end
 end

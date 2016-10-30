@@ -1,12 +1,23 @@
 <article class="article">
+
   <h1 class="title title--main article__title">
     <%= @article.title %>
   </h1>
 
-  <div class="article__content">
-    <div class="article__introduction">
-      <%= @article.introduction %>
+  <% if @article.images? %>
+    <div class="article__images">
+      <% @article.images.each do |image| %>
+        <%= image_tag(image.url, class: 'article__image') %>
+      <% end %>
     </div>
+  <% end %>
+
+  <div class="article__content">
+    <% if @article.introduction? %>
+      <div class="article__introduction">
+        <%= @article.introduction %>
+      </div>
+    <% end %>
 
     <%= markdown(@article.text) %>
   </div>

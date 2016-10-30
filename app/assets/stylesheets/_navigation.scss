@@ -1,9 +1,9 @@
 .navigation {
-  margin: 0 30px;
-  padding: 30px 0;
   background: #fff;
-  border-bottom: 2px solid #efefef;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
 }
 
 .navigation__item {
@@ -11,8 +11,13 @@
   text-decoration: none;
   color: #979797;
   margin-right: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
 
-  &:hover {
-    color: #252525;
+  &:hover,
+  &--current {
+    color: #000;
   }
 }

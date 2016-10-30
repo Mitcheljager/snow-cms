@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161023170058) do
+ActiveRecord::Schema.define(version: 20161030000910) do
 
   create_table "article_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161023170058) do
     t.string   "introduction"
     t.string   "category"
     t.string   "urlname"
+    t.json     "images"
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +45,13 @@ ActiveRecord::Schema.define(version: 20161023170058) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "websites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
