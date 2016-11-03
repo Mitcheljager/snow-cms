@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/pages/index'
   get '/:id' => 'pages#show'
 
+  get '/admin/pages/sort' => 'pages#sort'
   get '/admin/pages' => 'pages#overview'
   get '/admin/pages/:id/edit' => 'pages#edit', :as => :edit_page_path
 

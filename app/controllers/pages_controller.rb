@@ -8,11 +8,11 @@ class PagesController < ApplicationController
   end
 
   def index
-    @pages = Page.all
+    @pages = Page.all.order(priority: :asc)
   end
 
   def overview
-    @pages = Page.all
+    @pages = Page.all.order(priority: :asc)
   end
 
   def show
@@ -55,6 +55,13 @@ class PagesController < ApplicationController
 
     flash[:notice] = 'Page successfully deleted'
     redirect_to action: 'overview'
+  end
+
+  def sort
+    params[:order].each do |key,value|
+      Page.find(value[:id]).update_attribute(:priority,value[:position])
+    end
+    render :nothing => true
   end
 
   private def page_params

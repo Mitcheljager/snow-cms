@@ -3,16 +3,16 @@
 }
 
 a {
-  color: #2f99da;
+  color: $blue;
   text-decoration: none;
 
   &:hover {
-    color: darken(#2f99da, 20%);
+    color: darken($blue, 20%);
   }
 }
 
 body {
-  padding: 0;
+  padding: 0 20px;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
@@ -28,7 +28,7 @@ h4,
 h5 {
   margin: 60px 0 30px;
   font-weight: 300;
-  color: #da393f;
+  color: $red;
   line-height: 1.5em;
 }
 

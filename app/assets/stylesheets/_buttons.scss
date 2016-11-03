@@ -1,6 +1,6 @@
 .btn {
   padding: 0;
-  color: #da393f;
+  color: $red;
   display: inline-block;
   text-decoration: none;
   border: 0;
@@ -14,7 +14,7 @@
 
   &:hover,
   &:focus {
-    color: darken(#da393f, 10%);
+    color: darken($red, 10%);
     border-color: #333;
     outline: 0;
   }

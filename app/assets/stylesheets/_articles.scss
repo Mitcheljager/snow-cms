@@ -22,12 +22,12 @@
 .article-item__content {
   font-size: 16px;
   line-height: 2em;
-  color: #979797;
+  color: $lightgray;
   margin-bottom: 15px;
 }
 
 .article-item__action {
-  color: #da393f;
+  color: $red;
   font-size: 16px;
   margin-top: auto;
 }

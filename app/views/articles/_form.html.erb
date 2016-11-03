@@ -36,7 +36,7 @@
 
     <div class="form__group">
       <div class="form__label">Category:</div>
-      <%= f.collection_select(:category, ArticleCategory.all, :slug, :name, {}, {:class=>'form__field form__field--checkbox'}) %>
+      <%= f.collection_select(:category, ArticleCategory.all, :slug, :name, {}, {:class=>'form__field form__field--select'}) %>
     </div>
 
     <%= f.text_area :introduction, placeholder: 'Introduction', class: 'form__textarea' %>
