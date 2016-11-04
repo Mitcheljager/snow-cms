@@ -17,9 +17,15 @@
     <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
     <%= f.text_field :urlname, placeholder: 'Nice Url', class: 'form__field' %>
 
-    <select class="form__select">
-      <option value="main-menu">Main Menu</option>
-    </select>
+    <div class="form__group">
+      <div class="form__label">
+        Menu:
+      </div>
+      <select class="form__field form__field--select" name="page[menu]" id="menu">
+        <option value="main-menu">Main Menu</option>
+        <option value="footer-menu">Footer Menu</option>
+      </select>
+    </div>
 
     <%= f.text_area :text, placeholder: 'Content', class: 'form__textarea', id: 'markdown' %>
 

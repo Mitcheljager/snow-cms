@@ -26,6 +26,7 @@
           <h4 class="list-group__title" href="#">Pages</h4>
 
           <div class="list-group__items">
+            <%= link_to 'Homepage', '/admin/homepage/', :class=> 'list-group__item' %>
             <%= link_to 'All Pages',
                 { :controller => 'pages', :action => :overview },
                 { :class=>'list-group__item' } %>

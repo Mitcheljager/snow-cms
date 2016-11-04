@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :website
+
   root to: 'website#index'
+
+  get '/admin/homepage' => 'website#edit', :as => :edit_homepage_path
 
   get '/admin' => 'admin#index'
 

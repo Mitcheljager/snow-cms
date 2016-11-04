@@ -20,4 +20,8 @@
   &--current {
     color: #000;
   }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }

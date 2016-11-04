@@ -1,0 +1,23 @@
+<div class="form">
+  <%= form_for(@website) do |f| %>
+    <% if @website.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@website.errors.count, 'error') %> prohibited
+          this website from being saved:
+        </h2>
+        <ul>
+          <% @website.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
+
+    <%= f.text_area :content, placeholder: 'Content', class: 'form__textarea', id: 'markdown' %>
+
+    <%= f.submit class: 'btn btn--large' %>
+  <% end %>
+</div>

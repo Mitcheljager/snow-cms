@@ -22,7 +22,7 @@
         { :controller => 'articles', :action => :index },
         { :class=>'navigation__item' } %>
 
-        <% @pages.each do |page| %>
+        <% @main_menu_pages.each do |page| %>
         <%= link_to page.title, '/' + page.urlname, :class=>'navigation__item ' + current_class?('/' + page.urlname) + '' %>
         <% end %>
       </nav>
@@ -38,6 +38,11 @@
       </div>
 
       <% if current_user %>
+
+      <% @footer_pages.each do |page| %>
+      <%= link_to page.title, '/' + page.urlname, :class=>'footer__link ' + current_class?('/' + page.urlname) + '' %>
+      <% end %>
+
       <%= link_to 'Admin',
       { :controller => 'admin', :action => :index },
       { :class=>'footer__link' } %>
