@@ -34,4 +34,9 @@ ready = function(){
 
 $(document).on('turbolinks:load', function() {
   ready();
+
+  var simplemde = new SimpleMDE({
+    element: $('#markdown')[0],
+    spellChecker: false
+  });
 });

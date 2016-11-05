@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require html.sortable
+//= require simplemde
 //= require turbolinks
 //= require_tree .
