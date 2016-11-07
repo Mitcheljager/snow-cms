@@ -14,6 +14,29 @@
       </div>
     <% end %>
 
+    <% if @website.images? %>
+      <div class="form__preview">
+        <% @website.images.each do |image| %>
+          <div class="form__preview-image-wrapper">
+            <%= image_tag(image.url, class: 'form__preview-image') %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="form__group">
+      <div class="form__label">
+        <% if @website.images? %>
+          Replace images:
+        <% else %>
+          Cover images:
+        <% end %>
+      </div>
+      <div class="form__file-upload">
+        <%= f.file_field :images, multiple: true, accept: 'image/jpeg, image/jpg, image/png' %>
+      </div>
+    </div>
+
     <%= f.text_field :title, placeholder: 'Title', class: 'form__field form__field--large' %>
 
     <%= f.text_area :content, placeholder: 'Content', class: 'form__textarea', id: 'markdown' %>

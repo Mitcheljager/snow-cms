@@ -6,7 +6,7 @@ set_positions = function() {
   });
 }
 
-ready = function(){
+ready = function() {
 
   set_positions();
 
@@ -33,10 +33,7 @@ ready = function(){
 }
 
 $(document).on('turbolinks:load', function() {
-  ready();
-
-  var simplemde = new SimpleMDE({
-    element: $('#markdown')[0],
-    spellChecker: false
-  });
+  if ($('.sortable').length != 0) {
+    ready();
+  }
 });

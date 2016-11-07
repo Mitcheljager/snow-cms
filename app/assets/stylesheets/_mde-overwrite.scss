@@ -1,0 +1,23 @@
+@keyframes moveInToolbar {
+  from {
+    transform: translateY(-100%);
+  } to {
+    transform: translateY(0);
+  }
+}
+
+.editor-toolbar {
+  border: 0;
+  border-bottom: 1px solid $border-color;
+  border-radius: 0;
+  background: #fff;
+  width: 100%;
+  opacity: 1;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    animation: moveInToolbar 400ms forwards;
+  }
+}

@@ -15,10 +15,16 @@ class WebsiteController < ApplicationController
     @website = Website.first
 
     if @website.update(website_params)
-      flash[:notice] = 'Website successfully updated'
-      redirect_to action: 'overview'
+      flash[:notice] = 'Homepage successfully updated'
+      redirect_to action: 'edit'
     else
       render 'edit'
     end
+  end
+
+  private
+
+  def website_params
+    params.require(:website).permit(:title, :content, images: [])
   end
 end

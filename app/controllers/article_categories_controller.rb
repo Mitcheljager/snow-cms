@@ -22,7 +22,9 @@ class ArticleCategoriesController < ApplicationController
     end
   end
 
-  private def articleCategory_params
+  private
+
+  def articleCategory_params
     params.require(:articleCategory).permit(:name, :slug)
   end
 end
