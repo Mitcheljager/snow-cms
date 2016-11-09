@@ -12,9 +12,11 @@
     </div>
   </div>
 
-  <div class="media-item__childs sortable">
-    <% @child_pages.where(parent_id: page.id).each do |page| %>
-      <%= render page %>
-    <% end %>
-  </div>
+  <% if @child_pages.where(parent_id: page.id).present? %>
+    <div class="media-item__childs sortable">
+      <% @child_pages.where(parent_id: page.id).each do |page| %>
+        <%= render page %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

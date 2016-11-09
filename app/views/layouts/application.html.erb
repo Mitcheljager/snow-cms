@@ -30,13 +30,15 @@
           <li class="navigation__item">
             <%= link_to page.title, '/' + page.urlname, :class=>'navigation__link ' + current_class?('/' + page.urlname) + '' %>
 
-            <ul class="navigation__dropdown">
-              <% @child_pages.where(parent_id: page.id).each do |childPage| %>
-                <li class="navigation__item navigation__item--child">
-                  <%= link_to childPage.title, '/' + childPage.urlname, :class=>'navigation__link ' + current_class?('/' + childPage.urlname) + '' %>
-                </li>
-              <% end %>
-            </ul>
+            <% if @child_pages.where(parent_id: page.id).present? %>
+              <ul class="navigation__dropdown">
+                <% @child_pages.where(parent_id: page.id).each do |childPage| %>
+                  <li class="navigation__item navigation__item--child">
+                    <%= link_to childPage.title, '/' + childPage.urlname, :class=>'navigation__link ' + current_class?('/' + childPage.urlname) + '' %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
           </li>
         <% end %>
       </nav>
@@ -54,7 +56,7 @@
       <% @footer_pages.each do |page| %>
         <%= link_to page.title, '/' + page.urlname, :class=>'footer__link ' + current_class?('/' + page.urlname) + '' %>
       <% end %>
-      
+
       <% if current_user %>
         <%= link_to 'Admin',
         { :controller => 'admin', :action => :index },
