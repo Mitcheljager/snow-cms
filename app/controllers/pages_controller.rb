@@ -13,6 +13,7 @@ class PagesController < ApplicationController
 
   def overview
     @pages = Page.all.order(priority: :asc)
+    @child_pages = Page.where.not(parent_id: 0)
   end
 
   def show
@@ -21,10 +22,12 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    @pages = Page.where(parent_id: 0).order(priority: :asc)
   end
 
   def edit
     @page = Page.find(params[:id])
+    @pages = Page.where(parent_id: 0).order(priority: :asc)
   end
 
   def update
@@ -67,6 +70,6 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:title, :text, :urlname, :menu)
+    params.require(:page).permit(:title, :text, :urlname, :menu, :parent_id)
   end
 end

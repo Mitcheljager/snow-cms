@@ -13,7 +13,8 @@ ready = function() {
   sortable('.sortable', {
     items: '.media-item',
     placeholder: '<div class="media-item__placeholder"></div>',
-    handle: '.media-item__handle'
+    handle: '.media-item__handle',
+    forcePlaceholderSize: true
   });
 
   $('.sortable').bind('sortupdate', function(e, ui) {

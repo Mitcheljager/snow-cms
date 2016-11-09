@@ -8,20 +8,46 @@
 
 .navigation__item {
   display: block;
+  margin-right: 30px;
+  position: relative;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover > .navigation__dropdown {
+    display: block;
+  }
+
+  &--child {
+    margin-right: 0;
+  }
+}
+
+.navigation__link {
   text-decoration: none;
   color: $lightgray;
-  margin-right: 30px;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 2px;
+  background: #fff;
 
   &:hover,
   &--current {
     color: #000;
   }
+}
 
-  &:last-child {
-    margin-right: 0;
-  }
+.navigation__dropdown {
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  display: none;
+  min-width: 200px;
+  padding: 0 15px;
+  background: #fff;
 }

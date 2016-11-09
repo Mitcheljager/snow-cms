@@ -4,21 +4,19 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<div class="media-items">
+<div class="media-items sortable">
 
   <h2 class="title media-items__title">Main Menu</h2>
-  <div class="sortable">
-    <% @main_menu_pages.each do |page| %>
-      <%= render page %>
-    <% end %>
-  </div>
-
+  <% @main_menu_pages.each do |page| %>
+    <%= render page %>
+  <% end %>
+</div>
+<div class="media-items sortable">
+  
   <h2 class="title media-items__title">Footer Menu</h2>
-  <div class="sortable">
-    <% @footer_pages.each do |page| %>
-      <%= render page %>
-    <% end %>
-  </div>
+  <% @footer_pages.each do |page| %>
+    <%= render page %>
+  <% end %>
 </div>
 
 <%= link_to 'New page', new_page_path, :class=>'btn' %>

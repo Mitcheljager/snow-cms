@@ -1,11 +1,20 @@
 <div class="media-item" data-id="<%= page.id %>">
   <div class="media-item__handle">=</div>
-  <%= link_to page.title, '/' + page.urlname, :class=>'media-item__title' %>
 
-  <div class="media-item__action">
-    <%= link_to 'Edit', edit_page_path(page), :class=>'media-item__action-link' %>
-    <%= link_to 'Delete', page_path(page),
-    method: :delete,
-    data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
+  <div class="media-item__content">
+    <%= link_to page.title, '/' + page.urlname, :class=>'media-item__title' %>
+
+    <div class="media-item__action">
+      <%= link_to 'Edit', edit_page_path(page), :class=>'media-item__action-link' %>
+      <%= link_to 'Delete', page_path(page),
+      method: :delete,
+      data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
+    </div>
+  </div>
+
+  <div class="media-item__childs sortable">
+    <% @child_pages.where(parent_id: page.id).each do |page| %>
+      <%= render page %>
+    <% end %>
   </div>
 </div>

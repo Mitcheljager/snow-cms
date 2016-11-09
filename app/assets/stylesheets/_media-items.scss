@@ -5,15 +5,28 @@
 
 .media-items__title {
   font-size: 21px;
-  margin: 60px 0 10px;
+  margin: 60px 0 30px;
   color: $black;
 }
 
 .media-item {
   width: 100%;
-  border-bottom: 2px solid $border-color;
-  padding: 20px 0;
+  border-top: 2px solid $border-color;
   position: relative;
+}
+
+.media-items > .media-item { // FIXME Bit of a hack to force correct border
+  &:first-of-type {
+    border-top: 0;
+  }
+
+  &:last-of-type {
+    border-bottom: 2px solid $border-color;
+  }
+}
+
+.media-item__childs {
+  padding-left: 30px;
 }
 
 .media-item__placeholder {
@@ -24,11 +37,15 @@
 
 .media-item__handle {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 0;
   font-size: 28px;
   cursor: -webkit-grab;
   color: #d7d7d7;
+
+  &:hover {
+    color: #333;
+  }
 }
 
 .media-item__title {
@@ -52,13 +69,19 @@
 }
 
 .media-item__content {
-  padding-right: 30px;
+  display: flex;
+  padding: 10px 0;
 }
 
 .media-item__action {
-  margin-top: 10px;
+  margin-left: auto;
   display: flex;
   flex-direction: row;
+  margin-right: 30px;
+
+  &--no-margin {
+    margin-right: 0;
+  }
 }
 
 .media-item__action-link {

@@ -6,16 +6,7 @@
 
 <div class="media-items">
   <% @articles.each do |article| %>
-    <div class="media-item">
-      <%= link_to article.title, article_path(article), :class=>'media-item__title' %>
-
-      <div class="media-item__action">
-        <%= link_to 'Edit', edit_article_path(article), :class=>'media-item__action-link' %>
-        <%= link_to 'Delete', article_path(article),
-        method: :delete,
-        data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
-      </div>
-    </div>
+    <%= render article %>
   <% end %>
 </div>
 

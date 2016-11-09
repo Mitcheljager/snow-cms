@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action do
-    @main_menu_pages = Page.where(menu: 'main-menu')
+    @main_menu_pages = Page.where(menu: 'main-menu', parent_id: 0)
+    @child_pages = Page.where.not(parent_id: 0)
     @footer_pages = Page.where(menu: 'footer-menu')
   end
 

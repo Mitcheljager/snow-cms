@@ -1,0 +1,12 @@
+<div class="media-item">
+  <div class="media-item__content">
+    <%= link_to article.title, article_path(article), :class=>'media-item__title' %>
+
+    <div class="media-item__action media-item__action--no-margin">
+      <%= link_to 'Edit', edit_article_path(article), :class=>'media-item__action-link' %>
+      <%= link_to 'Delete', article_path(article),
+      method: :delete,
+      data: { confirm: 'Are you sure?' }, :class=>'media-item__action-link' %>
+    </div>
+  </div>
+</div>

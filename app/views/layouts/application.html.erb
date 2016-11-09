@@ -17,13 +17,27 @@
       </div>
 
       <nav class="navigation">
-        <%= link_to 'Home', root_path, :class=> 'navigation__item' %>
-        <%= link_to 'Articles',
-        { :controller => 'articles', :action => :index },
-        { :class=>'navigation__item' } %>
+        <li class="navigation__item">
+          <%= link_to 'Home', root_path, :class=> 'navigation__link' %>
+        </li>
+        <li class="navigation__item">
+          <%= link_to 'Articles',
+          { :controller => 'articles', :action => :index },
+          { :class=>'navigation__link' } %>
+        </li>
 
         <% @main_menu_pages.each do |page| %>
-        <%= link_to page.title, '/' + page.urlname, :class=>'navigation__item ' + current_class?('/' + page.urlname) + '' %>
+          <li class="navigation__item">
+            <%= link_to page.title, '/' + page.urlname, :class=>'navigation__link ' + current_class?('/' + page.urlname) + '' %>
+
+            <ul class="navigation__dropdown">
+              <% @child_pages.where(parent_id: page.id).each do |childPage| %>
+                <li class="navigation__item navigation__item--child">
+                  <%= link_to childPage.title, '/' + childPage.urlname, :class=>'navigation__link ' + current_class?('/' + childPage.urlname) + '' %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
         <% end %>
       </nav>
     </header>
@@ -37,15 +51,14 @@
         Snow CMS &copy; 2016
       </div>
 
-      <% if current_user %>
-
       <% @footer_pages.each do |page| %>
-      <%= link_to page.title, '/' + page.urlname, :class=>'footer__link ' + current_class?('/' + page.urlname) + '' %>
+        <%= link_to page.title, '/' + page.urlname, :class=>'footer__link ' + current_class?('/' + page.urlname) + '' %>
       <% end %>
-
-      <%= link_to 'Admin',
-      { :controller => 'admin', :action => :index },
-      { :class=>'footer__link' } %>
+      
+      <% if current_user %>
+        <%= link_to 'Admin',
+        { :controller => 'admin', :action => :index },
+        { :class=>'footer__link' } %>
       <% end %>
     </footer>
   </body>

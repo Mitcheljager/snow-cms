@@ -12,7 +12,7 @@
 }
 
 .footer__link {
-  @extend .navigation__item;
+  @extend .navigation__link;
   margin-left: 30px;
   margin-right: 0;
 }

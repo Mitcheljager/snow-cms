@@ -27,6 +27,18 @@
       </select>
     </div>
 
+    <div class="form__group">
+      <div class="form__label">
+        Parent:
+      </div>
+      <select class="form__field form__field--select" name="page[parent_id]" id="parent_id">
+        <option value="0">None</option>
+        <% @pages.each do |page| %>
+          <option value="<%= page.id %>"><%= page.title %></option>
+        <% end %>
+      </select>
+    </div>
+
     <%= f.text_area :text, placeholder: 'Content', class: 'form__textarea', id: 'markdown' %>
 
     <%= f.submit class: 'btn btn--large' %>
