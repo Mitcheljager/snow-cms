@@ -1,0 +1,11 @@
+<li class="navigation__item">
+  <%= link_to page.title, '/' + page.urlname, :class=>'navigation__link ' + current_class?('/' + page.urlname) + '' %>
+
+  <% if @child_pages.where(parent_id: page.id).present? %>
+    <ul class="navigation__dropdown">
+      <% @child_pages.where(parent_id: page.id).each do |childPage| %>
+        <%= render layouts/page-item %>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

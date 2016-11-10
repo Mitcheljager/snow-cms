@@ -13,7 +13,7 @@
 
   <body>
     <section class="admin-wrapper">
-      <nav class="admin-navigation">
+      <nav class="admin__navigation">
 
         <section class="list-group">
           <%= link_to 'Dashboard', admin_path, :class=> 'list-group__title' %>
@@ -52,7 +52,7 @@
         </section>
       </nav>
 
-      <div class="admin-content">
+      <div class="admin__content">
         <%= yield %>
       </div>
     </section>

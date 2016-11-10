@@ -3,8 +3,7 @@
   padding: 60px;
 }
 
-.admin-navigation {
-  min-height: 100vh;
+.admin__navigation {
   min-width: 240px;
 }
 
@@ -16,12 +15,22 @@
   }
 }
 
-.admin-content {
+.admin__content {
   width: 100%;
   max-width: 640px;
   margin-left: 90px;
   animation: fadeIn 600ms forwards;
   // margin-left: calc((100vw - 240px - 640px - 80px) / 2);
+}
+
+.admin__footer {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.admin__logo {
+  max-width: 80px;
+  height: auto;
 }
 
 .list-group {
