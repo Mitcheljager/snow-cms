@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     @main_menu_pages = Page.where(menu: 'main-menu', parent_id: 0)
     @child_pages = Page.where.not(parent_id: 0)
     @footer_pages = Page.where(menu: 'footer-menu')
+    @website_settings = WebsiteSetting.first
   end
 
   def current_user

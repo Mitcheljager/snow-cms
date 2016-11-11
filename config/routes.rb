@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'website_settings/index'
+
+  get 'website_settings/edit'
+
   resources :website
 
   root to: 'website#index'
 
-  get '/admin/homepage' => 'website#edit', :as => :edit_homepage_path
+  get '/admin/homepage' => 'website#edit', :as => 'edit_homepage'
 
   get '/admin' => 'admin#index'
 
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
   get '/admin/articles/:id/edit' => 'articles#edit', :as => :edit_article_path
 
   resources :article_categories
+
+  get '/admin/website-settings' => 'website_settings#edit', :as => 'edit_website_settings'
 
   resources :pages
 
